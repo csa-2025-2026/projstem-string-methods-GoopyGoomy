@@ -13,8 +13,8 @@ public class Main
     int N = scan.nextInt();
     lastFirstN(word1, word2, N);
 
-    stringManip()
-  }
+    System.out.println(removeStr("Chau", "au"));
+    }
 
   /** Precondition: s1 and s2 are not null
   * Precondition: 0 <= n <= min(s1.length(), s2.length()
@@ -50,7 +50,8 @@ public class Main
     String allCap;
 
     oneCap = s1.substring(0, 1).toUpperCase();
-    allCap = s2.substring(0).toUpperCase();
+    oneCap += s2.substring(1, s2.length()).toLowerCase();
+    allCap = s2.toUpperCase();
 
     output = oneCap + allCap;
     System.out.println(output);
@@ -62,6 +63,16 @@ public class Main
   public static String removeStr(String s1, String s2)
   {
     String output = null;
+    String before;
+    String after;
+
+    int inexOfs2 = s2.indexOf(s2);
+    int indexOfEnds2 = indexOfs2 + s2.length();
+
+    before = s1.substring(0, indexOfs2);
+    after = s1.substring(indexOfEnds2);
+
+    output = before + after;
     return output;
   }
 }
